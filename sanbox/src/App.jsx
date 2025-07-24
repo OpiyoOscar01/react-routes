@@ -8,6 +8,7 @@ import { Products } from './Products'
 import { productLoader } from './Loaders'
 import Login from './Login'
 import Dashboard from './Dashboard'
+import ProtectedRoute from './ProtectedRoute'
 
 
 function App() {
@@ -15,8 +16,15 @@ function App() {
 
 <BrowserRouter>
   <Routes>
-    <Route path='/dashboard' element={<Dashboard />} />
-    <Route path='/' element={<Layout />}>
+  <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+          <Route path='/' element={<Layout />}>
       <Route path='login' element={<Login />} />
       <Route path='home' element={<Home />} />
       <Route path='about' element={<About />} />
