@@ -6,6 +6,8 @@ import Layout from './Layout'
 import { About } from './About'
 import { Products } from './Products'
 import { productLoader } from './Loaders'
+import Login from './Login'
+import Dashboard from './Dashboard'
 
 
 function App() {
@@ -13,7 +15,9 @@ function App() {
 
 <BrowserRouter>
   <Routes>
+    <Route path='/dashboard' element={<Dashboard />} />
     <Route path='/' element={<Layout />}>
+      <Route path='login' element={<Login />} />
       <Route path='home' element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
