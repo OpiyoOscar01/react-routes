@@ -38,3 +38,41 @@ function App() {
 }
 
 export default App
+
+/**
+ * // App.jsx
+import React, { useState, useRef } from 'react';
+import Popover from './Popover';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef();
+
+  const togglePopover = () => setIsOpen(!isOpen);
+
+  const getPosition = () => {
+    const rect = buttonRef.current.getBoundingClientRect();
+    return {
+      top: rect.bottom + window.scrollY + 5,
+      left: rect.left + window.scrollX,
+    };
+  };
+
+  return (
+    <div className="p-10">
+      <button ref={buttonRef} onClick={togglePopover} className="bg-blue-500 text-white p-2 rounded">
+        Toggle Popover
+      </button>
+
+      {isOpen && (
+        <Popover onClose={() => setIsOpen(false)} position={getPosition()}>
+          <p>This is a popover via portal!</p>
+        </Popover>
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+ */
