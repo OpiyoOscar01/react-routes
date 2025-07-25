@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import PopupDemo from './PopupDemo';
+import ModalDemo from './ModalDemo';
 
 function Layout() {
   // Tailwind-based dynamic class
@@ -10,6 +12,8 @@ function Layout() {
 
   return (
     <>
+    <PopupDemo></PopupDemo>
+    <ModalDemo></ModalDemo>
       <nav className="flex gap-4 bg-gray-100 p-4 shadow">
         <NavLink to="home" className={navLinkClass}>
           Home
